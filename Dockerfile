@@ -11,9 +11,6 @@ RUN mvn -f /home/runner/work/SpringAlarm/SpringAlarm/pom.xml clean package
 # Run phase
 #
 FROM openjdk:11-jre-slim
-RUN addgroup -S spring && adduser -S spring -G spring
-USER spring:spring
-ARG JAR_FILE=target/*.jar
-COPY ${JAR_FILE} app.jar
+COPY --from=build /home/runner/work/SpringAlarm/SpringAlarm/target/*.jar /usr/local/lib/alarm.jar
 EXPOSE 8080
-ENTRYPOINT ["java","-jar","/app.jar"]
+ENTRYPOINT ["java","-jar","/usr/local/lib/alarm.jar"]
