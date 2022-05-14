@@ -12,6 +12,6 @@ RUN mvn -f /home/runner/work/SpringAlarm/SpringAlarm/pom.xml clean package
 #
 FROM openjdk:11-jre-slim
 COPY --from=build /home/runner/work/SpringAlarm/SpringAlarm/target/*.jar /usr/local/lib/alarm.jar
-EXPOSE $PORT
+#EXPOSE $PORT
 #ENTRYPOINT ["java","-Dserver.port=8181","-jar","/usr/local/lib/alarm.jar"]
 ENTRYPOINT ["java","-jar","/usr/local/lib/alarm.jar"]
