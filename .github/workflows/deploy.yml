@@ -35,4 +35,3 @@ jobs:
     - run: heroku container:login 
     - run: heroku container:push web --app spring-alarm
     - run: heroku container:release web --app spring-alarm
-    - run: heroku ps:scale web=1
