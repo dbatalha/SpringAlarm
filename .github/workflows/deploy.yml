@@ -33,5 +33,5 @@ jobs:
           EOF
     - run: heroku login      
     - run: heroku container:login 
-    - run: heroku container:push web --app spring-alarm
-    - run: heroku container:release web --app spring-alarm
+    - run: heroku container:push alarm --app spring-alarm
+    - run: heroku container:release alarm --app spring-alarm
